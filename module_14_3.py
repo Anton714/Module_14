@@ -4,7 +4,7 @@ from aiogram.dispatcher.filters.state import State, StatesGroup
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
-api = '74'
+api = '7410533877:AAHZ0R0-VRiom2G7JhVoNnbPeMOVzHZO_wQ'
 bot = Bot(token=api)
 dp = Dispatcher(bot, storage=MemoryStorage())
 
@@ -33,16 +33,20 @@ in2_kb.insert(in2_button_2)
 in2_kb.insert(in2_button_3)
 in2_kb.insert(in2_button_4)
 
+@dp.message_handler()
+async def all_massages(message):
+    print('Введите команду: /start, чтобы начать общение.')
+
 
 @dp.message_handler(text='Купить')
 async def get_buying_list(message):
-    with open('files/img (33).png', 'rb') as img:
+    with open('img (33).png', 'rb') as img:
         await message.answer_photo(img, f'Название: Product {1} | Описание: описание {1} | Цена: {1 * 100}  p')
-    with open('files/img (37).png', 'rb') as img:
+    with open('img (37).png', 'rb') as img:
         await message.answer_photo(img, f'Название: Product {2} | Описание: описание {2} | Цена: {2 * 100}  p')
-    with open('files/img (40).png', 'rb') as img:
+    with open('img (40).png', 'rb') as img:
         await message.answer_photo(img, f'Название: Product {3} | Описание: описание {3} | Цена: {3 * 100}  p')
-    with open('files/img (49).png', 'rb') as img:
+    with open('img (49).png', 'rb') as img:
         await message.answer_photo(img, f'Название: Product {4} | Описание: описание {4} | Цена: {4 * 100}  p')
     await message.answer('Выберите продукт для покупки:', reply_markup=in2_kb)
 
